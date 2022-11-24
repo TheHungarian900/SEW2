@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E345BB2F-338C-4E3A-8938-233B0BD8524E}</ProjectGuid>
+    <ProjectGuid>{037523EC-8343-47B7-8A24-73CB3372EF53}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>_221110_Rabatzz</RootNamespace>
     <AssemblyName>221110-Rabatzz</AssemblyName>

@@ -1,0 +1,66 @@
+﻿<Window x:Class="_221110_Rabatzz.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_221110_Rabatzz"
+        mc:Ignorable="d"
+        Title="Rabatzzz" Height="355" Width="200">
+
+    <Window.Resources>
+        <Style TargetType="ComboBox" x:Key="ComboBoxStyle">
+            <Setter Property="Width" Value="50" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="Margin" Value="0,4,0,4" />
+            <Setter Property="Padding" Value="6,3,6,3" />
+        </Style>
+    </Window.Resources>
+
+    <StackPanel>
+
+        <StackPanel Orientation="Horizontal" Margin="2">
+            <Label Content="Menge:" MinWidth="90" />
+            <TextBox x:Name="txtAmmount" MinWidth="80" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Margin="2">
+            <Label Content="Einzelpreis:" MinWidth="90" />
+            <TextBox x:Name="txtprice" MinWidth="80" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Margin="2">
+            <Label Content="Umsatzgrenze:" MinWidth="90" />
+            <ComboBox x:Name="cboSalesLimit" Text="Select" Style="{StaticResource ComboBoxStyle}" MinWidth="80">
+                <ComboBoxItem IsSelected="True" HorizontalContentAlignment="Right" Content="10" />
+                <ComboBoxItem HorizontalContentAlignment="Right" Content="100" />
+                <ComboBoxItem HorizontalContentAlignment="Right" Content="1000" />
+            </ComboBox>
+        </StackPanel>
+
+        <StackPanel HorizontalAlignment="Right" Orientation="Vertical" Margin="2">
+            <Label FontWeight="Bold" Content="Prozentsatz" MinWidth="90" />
+            <RadioButton x:Name="rdoZero" GroupName="discount" IsChecked="True" Content="0%" />
+            <RadioButton x:Name="rdoTen" GroupName="discount" Content="10%" />
+            <RadioButton x:Name="rdoTwenty" GroupName="discount" Content="20%" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <Label Content="Rabatt (%):" MinWidth="80" />
+            <Label x:Name="lblDiscountPercent" Content="0%" MinWidth="80" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <Label Content="Rabatt (€):" MinWidth="80" />
+            <Label x:Name="lblDiscount" Content="0" MinWidth="80" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <Label Content="Endpreis:" MinWidth="80" />
+            <Label x:Name="lblEndPrice" Content="0" MinWidth="80" />
+        </StackPanel>
+
+        <Button x:Name="btnCalc" Content="Berechne" Margin="4" Click="btnCalc_Click"/>
+        <Button x:Name="btnExit" Content="Exit" Margin="4" Click="btnExit_Click" />
+
+    </StackPanel>
+</Window>

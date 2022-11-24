@@ -29,13 +29,20 @@ namespace _221110_Rabatzz
         {
 
             double amount, singlePrice;
+            double salesLimit = 0;
 
             if(Double.TryParse(txtAmmount.Text, out amount) == true &&
                Double.TryParse(txtprice.Text, out singlePrice) == true)
             {
                 double turnover = amount * singlePrice;
-                double discountPercentage = calcDiscountPercentage(turnover);
 
+                var cboItem = cboSalesLimit.SelectedItem as ComboBoxItem;
+                if (cboItem != null)
+                {
+                    salesLimit = Convert.ToDouble(cboItem.Content);
+                }
+
+                double discountPercentage = calcDiscountPercentage(turnover, salesLimit);
                 double discount = turnover * discountPercentage;
                 double endPrice = turnover - discount;
 
@@ -44,25 +51,19 @@ namespace _221110_Rabatzz
                 lblDiscount.Content = discount;
                 lblEndPrice.Content = endPrice;
             }
-
-            
-
         }
 
-        private double calcDiscountPercentage(double turnover)
+        private double calcDiscountPercentage(double turnover, double salesLimit)
         {
-            
-            if(turnover < 1000)
+            if (turnover <= salesLimit)
             {
                 return 0;
             }
-            else if(turnover < 10000)
+            else
             {
-                return 0.1;
+                return 0.15;
             }
-            return 0.2;
-
-        }
+        }        
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
