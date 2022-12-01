@@ -64,6 +64,7 @@ namespace _221124_HighLow_WPF
                     lblTries.Content = tries + " Tries";
                     btnCheck.Content = "Restart";
                     txtNum.IsReadOnly = true;
+                    tries = 0;
                 }
             }
         }
