@@ -47,6 +47,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "221110-Rabatzz12_3", "22111
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "221110-Rabatzz12_4", "221110-Rabatzz12_4\221110-Rabatzz12_4.csproj", "{125FCA83-FC3B-4AB8-8E68-E0091F017498}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "221124-HighLow-WPF", "221124-HighLow-WPF\221124-HighLow-WPF.csproj", "{50F475C8-7C7D-4BB6-8B73-B142363C32C1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -141,6 +143,10 @@ Global
 		{125FCA83-FC3B-4AB8-8E68-E0091F017498}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{125FCA83-FC3B-4AB8-8E68-E0091F017498}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{125FCA83-FC3B-4AB8-8E68-E0091F017498}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50F475C8-7C7D-4BB6-8B73-B142363C32C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50F475C8-7C7D-4BB6-8B73-B142363C32C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50F475C8-7C7D-4BB6-8B73-B142363C32C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50F475C8-7C7D-4BB6-8B73-B142363C32C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
