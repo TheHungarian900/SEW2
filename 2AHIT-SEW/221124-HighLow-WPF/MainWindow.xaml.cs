@@ -29,7 +29,7 @@ namespace _221124_HighLow_WPF
 
         private void btnCheck_Click(object sender, RoutedEventArgs e)
         {
-            double num;
+            int num;
 
             if(lblClue.Content != "Too big!" && lblClue.Content != "Too small!")
             {
@@ -45,7 +45,7 @@ namespace _221124_HighLow_WPF
             txtNum.IsReadOnly = false;
             btnCheck.Content = "Check";
 
-            if(double.TryParse(txtNum.Text, out num) == true)
+            if(int.TryParse(txtNum.Text, out num) == true)
             {
                 if(num < RandomNum)
                 {
