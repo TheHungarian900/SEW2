@@ -14,7 +14,7 @@
 
         <Label Content="wie viel:" Canvas.Left="98" Canvas.Top="14" Width="72"/>
 
-        <ComboBox x:Name="cboAmount" Width="62" Height="23" Canvas.Left="175" Canvas.Top="14">
+        <ComboBox x:Name="cboAmount" Width="62" Height="23" Canvas.Left="175" Canvas.Top="14" SelectionChanged="cboAmount_SelectionChanged">
             <ComboBoxItem IsSelected="True" HorizontalContentAlignment="Right" Content="5" />
             <ComboBoxItem HorizontalContentAlignment="Right" Content="4" />
             <ComboBoxItem HorizontalContentAlignment="Right" Content="3" />
