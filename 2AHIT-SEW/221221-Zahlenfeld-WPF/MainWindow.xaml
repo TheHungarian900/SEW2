@@ -14,7 +14,7 @@
 
         <Label Content="wie viel:" Canvas.Left="98" Canvas.Top="14" Width="72"/>
 
-        <ComboBox x:Name="cboAmount" Width="62" Height="23" Canvas.Left="175" Canvas.Top="14" SelectionChanged="cboAmount_SelectionChanged">
+        <ComboBox x:Name="cboAmount" Width="62" Height="23" Canvas.Left="175" Canvas.Top="14">
             <ComboBoxItem IsSelected="True" HorizontalContentAlignment="Right" Content="5" />
             <ComboBoxItem HorizontalContentAlignment="Right" Content="4" />
             <ComboBoxItem HorizontalContentAlignment="Right" Content="3" />
@@ -41,8 +41,8 @@
         <Button x:Name="btnAdd" Content="Hinzufügen" MinWidth="220" Click="btnAdd_Click" Canvas.Left="10" Canvas.Top="191" Width="227"/>
 
         <Button x:Name="btnMw" Content="Mittelwert berechnen" MinWidth="220" Click="btnMw_Click" Canvas.Left="10" Canvas.Top="216" Width="227"/>
-        <Button x:Name="btnMin" Content="Minimum berechnen" MinWidth="220" Click="btnMw_Click" Canvas.Left="10" Canvas.Top="241" Width="227"/>
-        <Button x:Name="btnMax" Content="Maximum berechnen" MinWidth="220" Click="btnMw_Click" Canvas.Left="10" Canvas.Top="266" Width="227"/>
+        <Button x:Name="btnMin" Content="Minimum berechnen" MinWidth="220" Click="btnMin_Click" Canvas.Left="10" Canvas.Top="241" Width="227"/>
+        <Button x:Name="btnMax" Content="Maximum berechnen" MinWidth="220" Click="btnMax_Click" Canvas.Left="10" Canvas.Top="266" Width="227"/>
 
         <Button x:Name="btnDelLast" Content="Letztes Löschen" MinWidth="220" Click="btnDelLast_Click" Canvas.Left="10" Canvas.Top="291" Width="227"/>
         <Button x:Name="btnDel" Content="Löschen" MinWidth="220" Click="btnDel_Click" Canvas.Left="10" Canvas.Top="316" Width="227"/>

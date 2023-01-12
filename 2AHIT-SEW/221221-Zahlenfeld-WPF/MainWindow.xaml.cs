@@ -65,28 +65,86 @@ namespace _221221_Zahlenfeld_WPF
             if(i > 0)
             {
                 ListBox1.Items.RemoveAt(i - 1);
-                btnAdd.IsEnabled = true;
+                f[i - 1] = 0;
                 i--;
+
+                lblInfo.Content = "";
+                lblMw.Content = "";
+                lblMin.Content = "";
+                lblMax.Content = "";
+                btnAdd.IsEnabled = true;
             }
             
         }
 
         private void btnDel_Click(object sender, RoutedEventArgs e)
         {
-            ListBox1.Items.Clear();
-            btnAdd.IsEnabled = true;
+            for(i = 0; i < f.Length; i++)
+            {
+                f[i] = 0;
+                ListBox1.Items.Clear();
+                btnAdd.IsEnabled = true;
+                lblMw.Content = "";
+                lblMin.Content = "";
+                lblMax.Content = "";
+                lblInfo.Content = "";
+            }
             i = 0;
         }
 
-        private void btnExit_Click(object sender, RoutedEventArgs e)
+        //Minimum berechnen
+        private void btnMin_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            int amount = 0;
+            double min;
+
+            lblInfo.Content = "";
+
+            var cboItem = cboAmount.SelectedItem as ComboBoxItem;
+            if (cboItem != null)
+            {
+                amount = Convert.ToInt32(cboItem.Content);
+            }
+
+            ArrayMethods.Minimum(f, i, amount, out min);
+            lblMin.Content = min;
+
+            if (ArrayMethods.Minimum(f, i, amount, out min) == false)
+            {
+                lblInfo.Content = "Geben Sie mehr Nummern ein!";
+            }
         }
 
+        //Maximum berechnen
+        private void btnMax_Click(object sender, RoutedEventArgs e)
+        {
+            int amount = 0;
+            double max;
+
+            lblInfo.Content = "";
+
+            var cboItem = cboAmount.SelectedItem as ComboBoxItem;
+            if (cboItem != null)
+            {
+                amount = Convert.ToInt32(cboItem.Content);
+            }
+
+            ArrayMethods.Maximum(f, i, amount, out max);
+            lblMax.Content = max;
+
+            if (ArrayMethods.Maximum(f, i, amount, out max) == false)
+            {
+                lblInfo.Content = "Geben Sie mehr Nummern ein!";
+            }
+        }
+
+        //Mittelwert berechnen
         private void btnMw_Click(object sender, RoutedEventArgs e)
         {
             int amount = 0;
             double mw;
+
+            lblInfo.Content = "";
 
             var cboItem = cboAmount.SelectedItem as ComboBoxItem;
             if(cboItem != null)
@@ -94,25 +152,19 @@ namespace _221221_Zahlenfeld_WPF
                 amount = Convert.ToInt32(cboItem.Content);
             }
 
-            Mittelwert(f, amount, out mw);
-
+            ArrayMethods.Mittelwert(f, i, amount, out mw);
             lblMw.Content = mw;
-        }
 
-        bool Mittelwert(double[] f, int n, out double mw)
-        {
-            mw = 0;
-            if(0 <= n && n <= f.Length)
+            if(mw == 0)
             {
-                for(i = 0; i < f.Length; i++)
-                {
-                    mw += f[i];
-                }
-                mw = mw / n;
-                return true;
+                lblInfo.Content = "Geben Sie mehr Nummern ein!";
             }
 
-            return false;
+        }
+
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }
