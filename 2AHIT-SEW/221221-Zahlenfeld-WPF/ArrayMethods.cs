@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _221221_Zahlenfeld_WPF
 {
-    class ArrayMethods
+    static class ArrayMethods
     {
         public static bool Mittelwert(double[] f, int amount, int n, out double mw)
         {
@@ -48,6 +48,7 @@ namespace _221221_Zahlenfeld_WPF
         {
             max = f[0];
             n--;
+
             if (0 <= n && n < amount && n <= f.Length)
             {
                 n++;
@@ -63,6 +64,29 @@ namespace _221221_Zahlenfeld_WPF
             max = 0;
             return false;
         }
+        public static bool Search(double[] f, double n, out double firstFound, out double search)
+        {
+            search = 0;
+            firstFound = 0;
 
+            for (int i = f.Length; i > 0; i--)
+            {
+                if (n == f[i-1])
+                {
+                    firstFound = i;
+                    search++;
+                }
+            }
+
+            if(search > 0)
+            {
+                return true;
+            }
+            else
+            {
+                n = -1;
+                return false;
+            }
+        }
     }
 }

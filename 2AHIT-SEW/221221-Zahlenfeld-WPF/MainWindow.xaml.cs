@@ -40,7 +40,7 @@ namespace _221221_Zahlenfeld_WPF
 
                 if (isOk == true)
                 {
-                    lblInfo.Content = "";
+                    resetGUI();
 
                     ListBox1.Items.Add(f[i]);
 
@@ -56,8 +56,23 @@ namespace _221221_Zahlenfeld_WPF
                 lblInfo.Content = "Keine weiteren Eingaben möglich!";
                 btnAdd.IsEnabled = false;
             }
+        }
 
-            
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            double n = 0;
+            double firstFound, search;
+
+            if (double.TryParse(txtKey.Text, out n))
+            {
+                ArrayMethods.Search(f, n, out firstFound, out search);
+                lblFirstFound.Content = firstFound + ". Stelle";
+                lblSearch.Content = search;
+            }
+            else
+            {
+                lblInfo.Content = "Fehlerhafte Eingabe!";
+            }
         }
 
         private void btnDelLast_Click(object sender, RoutedEventArgs e)
@@ -68,11 +83,8 @@ namespace _221221_Zahlenfeld_WPF
                 f[i - 1] = 0;
                 i--;
 
-                lblInfo.Content = "";
-                lblMw.Content = "";
-                lblMin.Content = "";
-                lblMax.Content = "";
-                btnAdd.IsEnabled = true;
+                resetGUI();
+                
             }
             
         }
@@ -83,11 +95,8 @@ namespace _221221_Zahlenfeld_WPF
             {
                 f[i] = 0;
                 ListBox1.Items.Clear();
-                btnAdd.IsEnabled = true;
-                lblMw.Content = "";
-                lblMin.Content = "";
-                lblMax.Content = "";
-                lblInfo.Content = "";
+
+                resetGUI();
             }
             i = 0;
         }
@@ -166,5 +175,18 @@ namespace _221221_Zahlenfeld_WPF
         {
             Application.Current.Shutdown();
         }
+
+        private void resetGUI()
+        {
+            lblInfo.Content = "";
+            lblMw.Content = "";
+            lblMin.Content = "";
+            lblMax.Content = "";
+            lblFirstFound.Content = "";
+            lblSearch.Content = "";
+            btnAdd.IsEnabled = true;
+        }
+
+        
     }
 }
