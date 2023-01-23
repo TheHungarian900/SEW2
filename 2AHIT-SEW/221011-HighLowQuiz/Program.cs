@@ -47,7 +47,7 @@ namespace _221011_HighLowQuiz
                 {
                     Console.WriteLine("Fehlerhafte Eingabe!");
 
-                    Console.Write("Geben Sie eine Zahlen von 1-100 ein: ");
+                    Console.Write("Geben Sie eine Zahl von 1-100 ein: ");
                 }
 
                 tries++;
