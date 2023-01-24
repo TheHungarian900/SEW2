@@ -34,8 +34,7 @@ namespace _230119_WPF_Calculator
 
             if(isOk1 == true && isOk2 == true)
             {
-                result = num1 + num2;
-                lblResult.Content = result;
+                lblResult.Content = MathLib.Add(num1, num2);
             }
             else
             {
@@ -49,8 +48,7 @@ namespace _230119_WPF_Calculator
 
             if (isOk1 == true && isOk2 == true)
             {
-                result = num1 - num2;
-                lblResult.Content = result;
+                lblResult.Content = MathLib.Sub(num1, num2);
             }
             else
             {
@@ -64,8 +62,7 @@ namespace _230119_WPF_Calculator
 
             if (isOk1 == true && isOk2 == true)
             {
-                result = num1 * num2;
-                lblResult.Content = result;
+                lblResult.Content = MathLib.Multiply(num1, num2);
             }
             else
             {
@@ -79,14 +76,13 @@ namespace _230119_WPF_Calculator
 
             if (isOk1 == true && isOk2 == true)
             {
-                if(num2 != 0)
+                if(MathLib.Divide(num1, num2, ref result) == true)
                 {
-                    result = num1 / num2;
                     lblResult.Content = result;
                 }
                 else
                 {
-                    lblResult.Content = "Fehlerhafte Eingabe!";
+                    lblResult.Content = "Durch 0 kann nicht dividiert werden!";
                 }
             }
             else
@@ -95,7 +91,7 @@ namespace _230119_WPF_Calculator
             }
         }
 
-        private void btnExit_Click(object sender, RoutedEventArgs e)
+        public void btnExit_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }
