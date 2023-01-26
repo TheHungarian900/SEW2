@@ -38,7 +38,8 @@ namespace _230119_WPF_Calculator
             }
             else
             {
-                lblResult.Content = "Fehlerhafte Eingabe!";
+                lblResult.Content = "";
+                MessageBox.Show("Fehlerhafte Eingabe!");
             }
         }
 
@@ -52,7 +53,8 @@ namespace _230119_WPF_Calculator
             }
             else
             {
-                lblResult.Content = "Fehlerhafte Eingabe!";
+                lblResult.Content = "";
+                MessageBox.Show("Fehlerhafte Eingabe!");
             }
         }
 
@@ -66,7 +68,8 @@ namespace _230119_WPF_Calculator
             }
             else
             {
-                lblResult.Content = "Fehlerhafte Eingabe!";
+                lblResult.Content = "";
+                MessageBox.Show("Fehlerhafte Eingabe!");
             }
         }
 
@@ -82,12 +85,13 @@ namespace _230119_WPF_Calculator
                 }
                 else
                 {
-                    lblResult.Content = "Durch 0 kann nicht dividiert werden!";
+                    lblResult.Content = "";
+                    MessageBox.Show("Durch 0 kann nicht dividiert werden!");
                 }
             }
             else
             {
-                lblResult.Content = "Fehlerhafte Eingabe!";
+                MessageBox.Show("Fehlerhafte Eingabe!");
             }
         }
 
