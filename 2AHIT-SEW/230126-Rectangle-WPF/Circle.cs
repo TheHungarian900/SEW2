@@ -67,11 +67,11 @@ namespace _230126_Rectangle_WPF
 
         public double Area
         {
-            get { return getArea(); }
+            get { return Math.Abs(getArea()); }
         }
         public double Circumference
         {
-            get { return getCircumference(); }
+            get { return Math.Abs(getCircumference()); }
         }
     }
 }

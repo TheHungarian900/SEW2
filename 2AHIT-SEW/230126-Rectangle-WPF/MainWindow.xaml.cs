@@ -20,14 +20,15 @@ namespace _230126_Rectangle_WPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        string input1, input2, shape, CoA;
-        bool isOk1, isOk2;
-        double n1, n2;
+        string input1, input2, input3, shape, CoA;
+        bool isOk1, isOk2, isOk3;
+        double n1, n2, n3;
 
 
         public MainWindow()
         {
             InitializeComponent();
+            lblDeveloperName.Content = Rectangle.DeveloperName;
         }
 
         //Circumference or Area
@@ -37,6 +38,16 @@ namespace _230126_Rectangle_WPF
             if (cboItem != null)
             {
                 CoA = Convert.ToString(cboItem.Content);
+            }
+
+            if (CoA == "Circumference" || CoA == "Area")
+            {
+                txtAreaDensity.IsEnabled = false;
+                txtAreaDensity.Text = "";
+            }
+            else if (CoA == "Mass")
+            {
+                txtAreaDensity.IsEnabled = true;
             }
         }
 
@@ -53,10 +64,15 @@ namespace _230126_Rectangle_WPF
             {
                 txtNum2.IsEnabled = false;
                 txtNum2.Text = "";
+
+                txtAreaDensity.IsEnabled = false;
+                txtAreaDensity.Text = "";
             }
             else if(shape == "Rectangle")
             {
                 txtNum2.IsEnabled = true;
+
+                txtAreaDensity.IsEnabled = true;
             }
 
 
@@ -70,12 +86,14 @@ namespace _230126_Rectangle_WPF
             //Circumference
             if (CoA == "Circumference")
             {
+
+
                 //Rectangle
                 if (shape == "Rectangle")
                 {
                     if (isOk1 && isOk2)
                     {
-                        Rectangle r = new Rectangle(n1, n2);
+                        Rectangle r = new Rectangle(n1, n2, n3);
                         lblResult.Content = r.Circumference;
                     }
                     else
@@ -115,7 +133,7 @@ namespace _230126_Rectangle_WPF
                 {
                     if (isOk1 && isOk2)
                     {
-                        Rectangle r = new Rectangle(n1, n2);
+                        Rectangle r = new Rectangle(n1, n2, n3);
                         lblResult.Content = r.Area;
                     }
                     else
@@ -145,6 +163,24 @@ namespace _230126_Rectangle_WPF
                     lblResult.Content = "";
                 }
             }
+
+            //Mass
+            else if(CoA == "Mass")
+            {
+                if (shape == "Rectangle")
+                {
+                    if (isOk1 && isOk2 && isOk3)
+                    {
+                        Rectangle r = new Rectangle(n1, n2, n3);
+                        lblResult.Content = r.Mass;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Fehlerhafte Eingabe!");
+                        lblResult.Content = "";
+                    }
+                }
+            }
         }
 
         public void btnExit_Click(object sender, RoutedEventArgs e)
@@ -159,12 +195,14 @@ namespace _230126_Rectangle_WPF
 
             isOk1 = double.TryParse(input1, out n1);
             isOk2 = double.TryParse(input2, out n2);
+            isOk3 = double.TryParse(input3, out n3);
         }
 
         private void input(out string input1, out string input2)
         {
             input1 = txtNum1.Text;
             input2 = txtNum2.Text;
+            input3 = txtAreaDensity.Text;
         }
     }
 }

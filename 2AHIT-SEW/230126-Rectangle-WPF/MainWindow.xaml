@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_230126_Rectangle_WPF"
         mc:Ignorable="d"
-        Title="Rectangle" Height="452.149" Width="390">
+        Title="Rectangle" Height="490" Width="400">
     <Canvas>
         <ComboBox x:Name="cboCoA" Text="Select" FontSize="25" Canvas.Left="195" Canvas.Top="10" Height="43" Width="178" SelectionChanged="cboCoA_SelectionChanged">
             <ComboBoxItem Content="Circumference"/>
@@ -31,5 +31,7 @@
 
         <Button x:Name="btnCalc" Content="Berechne" FontSize="25" Canvas.Left="13" Canvas.Top="334" Width="360" Click="btnCalc_Click"/>
         <Button x:Name="btnExit" Content="Exit" FontSize="25" Canvas.Left="13" Canvas.Top="376" Width="360" Click="btnExit_Click"/>
+
+        <Label x:Name="lblDeveloperName" Content="" FontSize="9" Canvas.Left="269" Canvas.Top="418" Height="20" Width="104"/>
     </Canvas>
 </Window>
