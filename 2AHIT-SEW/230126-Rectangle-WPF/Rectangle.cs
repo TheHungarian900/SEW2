@@ -8,7 +8,13 @@ namespace _230126_Rectangle_WPF
 {
     class Rectangle
     {
-        double length, width;
+        double length, width, area, circumference;
+
+        public Rectangle()
+        {
+            length = 0;
+            this.width = 0;
+        }
 
         public Rectangle(double length, double width)
         {
@@ -16,6 +22,7 @@ namespace _230126_Rectangle_WPF
             this.width = width;
         }
 
+        //public
         public double GetCircumference()
         {
             return 2 * (length + width);
@@ -25,25 +32,58 @@ namespace _230126_Rectangle_WPF
         {
             return length * width;
         }
+
+        //private
+        private double getCircumference()
+        {
+            if (length < 0)
+            {
+                length *= -1;
+            }
+            else if (width < 0)
+            {
+                width *= -1;
+            }
+
+            return 2 * (length + width);
+        }
+
+        private double getArea()
+        {
+            if (length < 0)
+            {
+                length *= -1;
+            }
+            else if (width < 0)
+            {
+                width *= -1;
+            }
+
+            return length * width;
+        }
+
+        //properties
+        public double Length
+        {
+            get { return length; }
+            set { length = value; }
+        }
+
+        public double Width
+        {
+            get { return width; }
+            set { width = value; }
+        }
+
+        public double Area
+        {
+            get { return getArea(); }
+        }
+        public double Circumference
+        {
+            get { return getCircumference(); }
+        }
     }
 
-    class Circle
-    {
-        double radius;
-
-        public Circle(double radius)
-        {
-            this.radius = radius;
-        }
-
-        public double GetCircumference()
-        {
-            return 2 * radius * Math.PI;
-        }
-
-        public double GetArea()
-        {
-            return Math.Pow(radius, 2) * Math.PI;
-        }
-    }
+    
 }

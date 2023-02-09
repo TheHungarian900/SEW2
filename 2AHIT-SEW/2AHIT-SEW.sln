@@ -57,6 +57,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "230119-WPF-Calculator", "23
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "230126-Rectangle-WPF", "230126-Rectangle-WPF\230126-Rectangle-WPF.csproj", "{D4FEDCD8-18B1-4990-80D3-B4CA08266B10}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{355DD32C-8DFE-450E-AAC3-C8D10E3F02C9}"
+	ProjectSection(SolutionItems) = preProject
+		MathOperations.cs = MathOperations.cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

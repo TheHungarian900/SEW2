@@ -5,24 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_230126_Rectangle_WPF"
         mc:Ignorable="d"
-        Title="Rectangle" Height="388" Width="390">
+        Title="Rectangle" Height="452.149" Width="390">
     <Canvas>
-        <ComboBox x:Name="cboShape" Text="Select" FontSize="25" Canvas.Left="195" Canvas.Top="10" Height="43" Width="178" SelectionChanged="cboShape_SelectionChanged">
+        <ComboBox x:Name="cboCoA" Text="Select" FontSize="25" Canvas.Left="195" Canvas.Top="10" Height="43" Width="178" SelectionChanged="cboCoA_SelectionChanged">
+            <ComboBoxItem Content="Circumference"/>
+            <ComboBoxItem Content="Area"/>
+            <ComboBoxItem Content="Mass"/>
+        </ComboBox>
+
+        <ComboBox x:Name="cboShape" Text="Select" FontSize="25" Canvas.Left="195" Canvas.Top="58" Height="43" Width="178" SelectionChanged="cboShape_SelectionChanged">
             <ComboBoxItem Content="Rectangle"/>
             <ComboBoxItem Content="Circle"/>
         </ComboBox>
-        
+
         <Label x:Name="lblNum1" Content="Zahl 1" FontSize="25" Canvas.Left="10" Canvas.Top="10"/>
         <TextBox x:Name="txtNum1" FontSize="25" Canvas.Left="10" Canvas.Top="53" Width="170"/>
 
         <Label x:Name="lblNum2" Content="Zahl 2" FontSize="25" Canvas.Left="13" Canvas.Top="93"/>
         <TextBox x:Name="txtNum2" FontSize="25" Canvas.Left="10" Canvas.Top="136" Width="170"/>
 
-        <Label x:Name="lblCircumference" Content="" FontSize="25" Canvas.Left="13" Canvas.Top="196" Width="177"/>
-        <Label x:Name="lblArea" Content="" FontSize="25" Canvas.Left="195" Canvas.Top="196" Width="179"/>
+        <Label x:Name="lblAreaDensity" Content="Area Density" FontSize="25" Canvas.Left="13" Canvas.Top="176"/>
+        <TextBox x:Name="txtAreaDensity" FontSize="25" Canvas.Left="10" Canvas.Top="219" Width="170"/>
 
-        <Button x:Name="btnCircumference" Content="Umfang" FontSize="25" Canvas.Left="13" Canvas.Top="262" Width="177.5" Click="btnCircumference_Click"/>
-        <Button x:Name="btnArea" Content="Fläche" FontSize="25" Canvas.Left="195" Canvas.Top="262" Width="178" Click="btnArea_Click"/>
-        <Button x:Name="btnExit" Content="Exit" FontSize="25" Canvas.Left="13" Canvas.Top="304" Width="360" Click="btnExit_Click"/>
+        <Label x:Name="lblResult" Content="" FontSize="25" Canvas.Left="13" Canvas.Top="268" Width="360"/>
+
+        <Button x:Name="btnCalc" Content="Berechne" FontSize="25" Canvas.Left="13" Canvas.Top="334" Width="360" Click="btnCalc_Click"/>
+        <Button x:Name="btnExit" Content="Exit" FontSize="25" Canvas.Left="13" Canvas.Top="376" Width="360" Click="btnExit_Click"/>
     </Canvas>
 </Window>

@@ -20,9 +20,9 @@ namespace _230126_Rectangle_WPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        string input1, input2, shape;
+        string input1, input2, shape, CoA;
         bool isOk1, isOk2;
-        double area, circumference, n1, n2;
+        double n1, n2;
 
 
         public MainWindow()
@@ -30,6 +30,17 @@ namespace _230126_Rectangle_WPF
             InitializeComponent();
         }
 
+        //Circumference or Area
+        private void cboCoA_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var cboItem = cboCoA.SelectedItem as ComboBoxItem;
+            if (cboItem != null)
+            {
+                CoA = Convert.ToString(cboItem.Content);
+            }
+        }
+
+        //Rectangle or Circle
         private void cboShape_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var cboItem = cboShape.SelectedItem as ComboBoxItem;
@@ -50,87 +61,89 @@ namespace _230126_Rectangle_WPF
 
 
         }
-        private void btnCircumference_Click(object sender, RoutedEventArgs e)
+
+        //Calculating
+        private void btnCalc_Click(object sender, RoutedEventArgs e)
         {
             isOk(out isOk1, out isOk2);
 
-            if (shape == "Rectangle")
+            //Circumference
+            if (CoA == "Circumference")
             {
-                if (isOk1 && isOk2)
+                //Rectangle
+                if (shape == "Rectangle")
                 {
-                    Rectangle r = new Rectangle(n1, n2);
-                    area = r.GetCircumference();
-                    lblCircumference.Content = area;
+                    if (isOk1 && isOk2)
+                    {
+                        Rectangle r = new Rectangle(n1, n2);
+                        lblResult.Content = r.Circumference;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Fehlerhafte Eingabe!");
+                        lblResult.Content = "";
+                    }
                 }
+                //Circle
+                else if (shape == "Circle")
+                {
+                    if (isOk1)
+                    {
+                        Circle c = new Circle(n1);
+                        Circle c2 = new Circle(n1, 1.0, 1.1);
+                        lblResult.Content = c.Circumference;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Fehlerhafte Eingabe!");
+                        lblResult.Content = "";
+                    }
+                }
+                //Nothing
                 else
                 {
-                    MessageBox.Show("Fehlerhafte Eingabe!");
-                    lblArea.Content = "";
-                    lblCircumference.Content = "";
+                    MessageBox.Show("Keine Form ausgewählt!");
+                    lblResult.Content = "";
                 }
             }
-            else if (shape == "Circle")
-            {
-                if (isOk1)
-                {
-                    Circle c = new Circle(n1);
-                    area = c.GetCircumference();
-                    lblCircumference.Content = area;
-                }
-                else
-                {
-                    MessageBox.Show("Fehlerhafte Eingabe!");
-                    lblArea.Content = "";
-                    lblCircumference.Content = "";
-                }
-            }
-            else
-            {
-                MessageBox.Show("Keine Form ausgewählt!");
-                lblArea.Content = "";
-                lblCircumference.Content = "";
-            }
-        }
 
-        private void btnArea_Click(object sender, RoutedEventArgs e)
-        {
-            isOk(out isOk1, out isOk2);
-
-            if (shape == "Rectangle")
+            //Area
+            else if(CoA == "Area")
             {
-                if (isOk1 && isOk2)
+                //Rectangle
+                if (shape == "Rectangle")
                 {
-                    Rectangle r = new Rectangle(n1, n2);
-                    area = r.GetArea();
-                    lblArea.Content = area;
+                    if (isOk1 && isOk2)
+                    {
+                        Rectangle r = new Rectangle(n1, n2);
+                        lblResult.Content = r.Area;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Fehlerhafte Eingabe!");
+                        lblResult.Content = "";
+                    }
                 }
+                //Circle
+                else if (shape == "Circle")
+                {
+                    if (isOk1)
+                    {
+                        Circle c = new Circle(n1);
+                        lblResult.Content = c.Area;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Fehlerhafte Eingabe!");
+                        lblResult.Content = "";
+                    }
+                }
+                //Nothing
                 else
                 {
-                    MessageBox.Show("Fehlerhafte Eingabe!");
-                    lblArea.Content = "";
-                    lblCircumference.Content = "";
+                    MessageBox.Show("Keine Form ausgewählt!");
+                    lblResult.Content = "";
                 }
-            }
-            else if (shape == "Circle")
-            {
-                if (isOk1)
-                {
-                    Circle c = new Circle(n1);
-                    area = c.GetArea();
-                    lblArea.Content = area;
-                }
-                else
-                {
-                    MessageBox.Show("Fehlerhafte Eingabe!");
-                    lblArea.Content = "";
-                    lblCircumference.Content = "";
-                }
-            }
-            else
-            {
-                MessageBox.Show("Keine Form ausgewählt!");
-                lblArea.Content = "";
-                lblCircumference.Content = "";
             }
         }
 
@@ -147,6 +160,7 @@ namespace _230126_Rectangle_WPF
             isOk1 = double.TryParse(input1, out n1);
             isOk2 = double.TryParse(input2, out n2);
         }
+
         private void input(out string input1, out string input2)
         {
             input1 = txtNum1.Text;
