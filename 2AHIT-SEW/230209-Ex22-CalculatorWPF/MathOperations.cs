@@ -12,6 +12,7 @@ namespace nsMath
         public const double PI = 3.1415926;
         public const double E = 2.718281828;
 
+        // own Exception
         public class NegativeArgumentException : Exception
         {
             public NegativeArgumentException() { }
