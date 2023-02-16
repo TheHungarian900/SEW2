@@ -12,49 +12,31 @@ namespace nsMath
         public const double PI = 3.1415926;
         public const double E = 2.718281828;
 
+        public class NegativeArgumentException : Exception
+        {
+            public NegativeArgumentException() { }
+            public NegativeArgumentException(string message) : base(message) { }
+            public NegativeArgumentException(string message, Exception inner) : base(message, inner) { }
+        }
+
         public static double Add(double a, double b) 
         {
-            if (double.IsInfinity(a + b))
-            {
-                throw new OverflowException();
-            }
-            else
-            {
-                return a + b;
-            }
+            return a + b;
             
         }
         public static double Sub(double a, double b) 
         {
-            if (double.IsInfinity(a - b))
-            {
-                throw new OverflowException();
-            }
-            else
-            {
-                return a - b;
-            }
+            return a - b;
         }
         public static double Mult(double a, double b) 
         {
-            if (double.IsInfinity(a * b))
-            {
-                throw new OverflowException();
-            }
-            else
-            {
-                return a * b;
-            }
+            return a * b;
         }
         public static double Div(double a, double b)
         {
             if (b == 0)
             {
                 throw new DivideByZeroException();
-            }
-            else if (double.IsInfinity(a / b))
-            {
-                throw new OverflowException();
             }
             else
             {
@@ -73,7 +55,7 @@ namespace nsMath
         {
             checked
             {
-                if (n == 1)
+                if (n == 1 || n == 0)
                 {
                     return 1;
                 }

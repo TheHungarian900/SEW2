@@ -38,13 +38,13 @@ namespace _230209_Ex22_CalculatorWPF
             {
                 lblResult.Content = nsMath.MathOperations.Add(num1, num2);
             }
-            catch(OverflowException)
+            catch(OverflowException ex)
             {
-                MessageBox.Show("Yor number is too high!");
+                lblResult.Content = ex.Message;
             }
-            catch(ArithmeticException)
+            catch(ArithmeticException ex)
             {
-                MessageBox.Show("Something went wrong!");
+                lblResult.Content = ex.Message;
             }
         }
 
@@ -56,13 +56,13 @@ namespace _230209_Ex22_CalculatorWPF
             {
                 lblResult.Content = nsMath.MathOperations.Sub(num1, num2);
             }
-            catch (OverflowException)
+            catch (OverflowException ex)
             {
-                MessageBox.Show("Yor number is too high!");
+                lblResult.Content = ex.Message;
             }
-            catch (ArithmeticException)
+            catch (ArithmeticException ex)
             {
-                MessageBox.Show("Something went wrong!");
+                lblResult.Content = ex.Message;
             }
         }
 
@@ -76,12 +76,12 @@ namespace _230209_Ex22_CalculatorWPF
             }
             catch (OverflowException ex)
             {
-                MessageBox.Show(ex.Message);
+                lblResult.Content = ex.Message;
                 //MessageBox.Show("Yor number is too high!");
             }
-            catch (ArithmeticException)
+            catch (ArithmeticException ex)
             {
-                MessageBox.Show("Something went wrong!");
+                lblResult.Content = ex.Message;
             }
         }
 
@@ -93,17 +93,17 @@ namespace _230209_Ex22_CalculatorWPF
             {
                 lblResult.Content = nsMath.MathOperations.Div(num1, num2);
             }
-            catch (OverflowException)
+            catch (OverflowException ex)
             {
-                MessageBox.Show("Yor number is too high!" + e);
+                lblResult.Content = ex.Message;
             }
-            catch (DivideByZeroException)
+            catch (DivideByZeroException ex)
             {
-                MessageBox.Show("You can't divide with 0!");
+                lblResult.Content = ex.Message;
             }
-            catch (ArithmeticException)
+            catch (ArithmeticException ex)
             {
-                MessageBox.Show("Something went wrong!");
+                lblResult.Content = ex.Message;
             }
         }
 
@@ -115,13 +115,21 @@ namespace _230209_Ex22_CalculatorWPF
             {
                 lblResult.Content = nsMath.MathOperations.Factorial(num3);
             }
-            catch (OverflowException)
+            catch (OverflowException ex)
             {
-                MessageBox.Show("Yor number is too high!");
+                lblResult.Content = ex.Message;
             }
-            catch (ArithmeticException)
+            catch (StackOverflowException ex)
             {
-                MessageBox.Show("Something went wrong!");
+                lblResult.Content = ex.Message;
+            }
+            catch (nsMath.MathOperations.NegativeArgumentException ex)
+            {
+                lblResult.Content = ex.Message;
+            }
+            catch (ArithmeticException ex)
+            {
+                lblResult.Content = ex.Message;
             }
         }
 
@@ -133,13 +141,17 @@ namespace _230209_Ex22_CalculatorWPF
             {
                 lblResult.Content = nsMath.MathOperations.Abs(num1);
             }
-            catch (OverflowException)
+            catch (OverflowException ex)
             {
-                MessageBox.Show("Yor number is too high!");
+                lblResult.Content = ex.Message;
             }
-            catch (ArithmeticException)
+            catch (ArithmeticException ex)
             {
-                MessageBox.Show("Something went wrong!");
+                lblResult.Content = ex.Message;
+            }
+            finally
+            {
+                lblResult.Content += "finally!";
             }
         }
 
@@ -151,13 +163,13 @@ namespace _230209_Ex22_CalculatorWPF
             {
                 lblResult.Content = nsMath.MathOperations.Signum(num1);
             }
-            catch (OverflowException)
+            catch (OverflowException ex)
             {
-                MessageBox.Show("Yor number is too high!");
+                lblResult.Content = ex.Message;
             }
-            catch (ArithmeticException)
+            catch (ArithmeticException ex)
             {
-                MessageBox.Show("Something went wrong!");
+                lblResult.Content = ex.Message;
             }
         }
 
@@ -168,25 +180,19 @@ namespace _230209_Ex22_CalculatorWPF
 
         private void isOk()
         {
-            input();
-
-            isOk1 = double.TryParse(input1, out num1);
-            isOk2 = double.TryParse(input2, out num2);
-        }
-        private void input()
-        {
             try
             {
-                input1 = txtNumber1.Text;
-                input2 = txtNumber2.Text;
+                isOk1 = double.TryParse(txtNumber1.Text, out num1);
+                isOk2 = double.TryParse(txtNumber2.Text, out num2);
             }
-            
+            catch (FormatException ex)
+            {
+                
+            }
         }
         private void Factorial()
         {
-            input3 = txtFactorial.Text;
-
-            isOk3 = long.TryParse(input3, out num3);
+            isOk3 = long.TryParse(txtFactorial.Text, out num3);
         }
 
     }

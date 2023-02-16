@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_230209_Ex22_CalculatorWPF"
         mc:Ignorable="d"
-        Title="Calculator" Height="555.681" Width="315">
+        Title="Calculator" Height="556" Width="315">
     <Canvas>
         <TextBox x:Name="txtNumber1" FontSize="30" Canvas.Left="30" Canvas.Top="10" Width="251" Height="40"/>
         <TextBox x:Name="txtNumber2" FontSize="30" Canvas.Left="30" Canvas.Top="55" Width="251" Height="40"/>
