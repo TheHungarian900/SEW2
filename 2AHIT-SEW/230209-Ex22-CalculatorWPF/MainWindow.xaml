@@ -13,7 +13,7 @@
         <Label Content="Factorial" FontSize="20" Canvas.Left="32" Canvas.Top="100" Height="40" Width="248"/>
         <TextBox x:Name="txtFactorial" Height="40" Width="248" Canvas.Left="32" Canvas.Top="145" FontSize="20"/>
 
-        <Label x:Name="lblResult" FontSize="20" Canvas.Left="32" Canvas.Top="204" Width="248" Height="40"/>
+        <Label x:Name="lblResult" FontSize="20" Canvas.Left="32" Canvas.Top="204" MinWidth="248" Height="40"/>
 
         <Button x:Name="btnFactorial" Content="Factorial" FontSize="20" Canvas.Left="32" Canvas.Top="249" Height="30" Width="249" Click="btnFactorial_Click"/>
         <Button x:Name="btnAbs" Content="Abs" FontSize="20" Canvas.Left="32" Canvas.Top="284" Height="30" Width="249" Click="btnAbs_Click"/>

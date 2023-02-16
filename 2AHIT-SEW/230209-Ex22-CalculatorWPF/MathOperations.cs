@@ -54,6 +54,11 @@ namespace nsMath
 
         public static long Factorial(long n)
         {
+            if(n < 0)
+            {
+                throw new NegativeArgumentException();
+            }
+
             checked
             {
                 if (n == 1 || n == 0)
