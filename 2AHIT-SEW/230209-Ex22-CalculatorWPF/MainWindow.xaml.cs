@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using nsMath;
 
 namespace _230209_Ex22_CalculatorWPF
 {
@@ -36,7 +37,7 @@ namespace _230209_Ex22_CalculatorWPF
                         
             try
             {
-                lblResult.Content = nsMath.MathOperations.Add(num1, num2);
+                lblResult.Content = MathOperations.Add(num1, num2);
             }
             catch(OverflowException ex)
             {
@@ -54,7 +55,7 @@ namespace _230209_Ex22_CalculatorWPF
 
             try
             {
-                lblResult.Content = nsMath.MathOperations.Sub(num1, num2);
+                lblResult.Content = MathOperations.Sub(num1, num2);
             }
             catch (OverflowException ex)
             {
@@ -72,7 +73,7 @@ namespace _230209_Ex22_CalculatorWPF
 
             try
             {
-                lblResult.Content = nsMath.MathOperations.Mult(num1, num2);
+                lblResult.Content = MathOperations.Mult(num1, num2);
             }
             catch (OverflowException ex)
             {
@@ -91,7 +92,7 @@ namespace _230209_Ex22_CalculatorWPF
 
             try
             {
-                lblResult.Content = nsMath.MathOperations.Div(num1, num2);
+                lblResult.Content = MathOperations.Div(num1, num2);
             }
             catch (OverflowException ex)
             {
@@ -113,7 +114,7 @@ namespace _230209_Ex22_CalculatorWPF
 
             try
             {
-                lblResult.Content = nsMath.MathOperations.Factorial(num3);
+                lblResult.Content = MathOperations.Factorial(num3);
             }
             catch (OverflowException ex)
             {
@@ -139,7 +140,7 @@ namespace _230209_Ex22_CalculatorWPF
 
             try
             {
-                lblResult.Content = nsMath.MathOperations.Abs(num1);
+                lblResult.Content = MathOperations.Abs(num1);
             }
             catch (OverflowException ex)
             {
@@ -161,7 +162,7 @@ namespace _230209_Ex22_CalculatorWPF
 
             try
             {
-                lblResult.Content = nsMath.MathOperations.Signum(num1);
+                lblResult.Content = MathOperations.Signum(num1);
             }
             catch (OverflowException ex)
             {
@@ -187,7 +188,11 @@ namespace _230209_Ex22_CalculatorWPF
             }
             catch (FormatException ex)
             {
-                
+                lblResult.Content = ex.Message;
+            }
+            catch (InvalidCastException ex)
+            {
+                lblResult.Content = ex.Message;
             }
         }
         private void Factorial()
