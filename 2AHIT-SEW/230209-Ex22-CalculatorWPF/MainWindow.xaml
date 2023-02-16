@@ -5,8 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_230209_Ex22_CalculatorWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="Calculator" Height="555.681" Width="315">
+    <Canvas>
+        <TextBox x:Name="txtNumber1" FontSize="30" Canvas.Left="30" Canvas.Top="10" Width="251" Height="40"/>
+        <TextBox x:Name="txtNumber2" FontSize="30" Canvas.Left="30" Canvas.Top="55" Width="251" Height="40"/>
+
+        <Label Content="Factorial" FontSize="20" Canvas.Left="32" Canvas.Top="100" Height="40" Width="248"/>
+        <TextBox x:Name="txtFactorial" Height="40" Width="248" Canvas.Left="32" Canvas.Top="145" FontSize="20"/>
+
+        <Label x:Name="lblResult" FontSize="20" Canvas.Left="32" Canvas.Top="204" Width="248" Height="40"/>
+
+        <Button x:Name="btnFactorial" Content="Factorial" FontSize="20" Canvas.Left="32" Canvas.Top="249" Height="30" Width="249" Click="btnFactorial_Click"/>
+        <Button x:Name="btnAbs" Content="Abs" FontSize="20" Canvas.Left="32" Canvas.Top="284" Height="30" Width="249" Click="btnAbs_Click"/>
+        <Button x:Name="btnSignum" Content="Signum" FontSize="20" Canvas.Left="32" Canvas.Top="319" Height="30" Width="249" Click="btnSignum_Click"/>
+
+        <Button x:Name="btnAdd" FontSize="50" Content="+" Padding="-100" Width="120" Height="50" Canvas.Left="32" Canvas.Top="354" Click="btnAdd_Click"/>
+        <Button x:Name="btnSubtract" FontSize="50" Content="-" Padding="-100" Width="120" Height="50" Canvas.Left="161" Canvas.Top="354" Click="btnSubtract_Click"/>
+        <Button x:Name="btnMultiply" FontSize="50" Content="*" Padding="00" Width="120" Height="50" Canvas.Left="32" Canvas.Top="408" Click="btnMultiply_Click"/>
+        <Button x:Name="btnDivide" FontSize="50" Content="÷" Padding="-100" Width="120" Height="50" Canvas.Left="161" Canvas.Top="408" Click="btnDivide_Click"/>
+
+        <Button x:Name="btnExit" Content="Exit" FontSize="25" Width="250" Height="34" Canvas.Left="32" Canvas.Top="482" Click="btnExit_Click"/>
+    </Canvas>
 </Window>

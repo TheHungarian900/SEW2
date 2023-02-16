@@ -6,28 +6,82 @@ using System.Threading.Tasks;
 
 namespace nsMath
 {
-    class MathOperations
+    static class MathOperations
     {
+
         public const double PI = 3.1415926;
         public const double E = 2.718281828;
 
-        public static double Add(double a, double b) { return a + b; }
-        public static double Sub(double a, double b) { return a - b; }
-        public static double Mult(double a, double b) { return a * b; }
+        public static double Add(double a, double b) 
+        {
+            if (double.IsInfinity(a + b))
+            {
+                throw new OverflowException();
+            }
+            else
+            {
+                return a + b;
+            }
+            
+        }
+        public static double Sub(double a, double b) 
+        {
+            if (double.IsInfinity(a - b))
+            {
+                throw new OverflowException();
+            }
+            else
+            {
+                return a - b;
+            }
+        }
+        public static double Mult(double a, double b) 
+        {
+            if (double.IsInfinity(a * b))
+            {
+                throw new OverflowException();
+            }
+            else
+            {
+                return a * b;
+            }
+        }
         public static double Div(double a, double b)
         {
-            if(b == 0)
+            if (b == 0)
             {
                 throw new DivideByZeroException();
             }
-            return a / b;
+            else if (double.IsInfinity(a / b))
+            {
+                throw new OverflowException();
+            }
+            else
+            {
+                return a / b;
+            }
         }
 
         public static double Abs(double a) { return Math.Abs(a); }
-        public static int Signum(double a)
+        public static double Signum(double a)
         {
             if (a == 0) return 0;
             return (a < 0) ? -1 : 1;
+        }
+
+        public static long Factorial(long n)
+        {
+            checked
+            {
+                if (n == 1)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return Factorial(n - 1) * n;
+                }
+            }
         }
     }
 }

@@ -59,12 +59,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "230126-Rectangle-WPF", "230
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{355DD32C-8DFE-450E-AAC3-C8D10E3F02C9}"
 	ProjectSection(SolutionItems) = preProject
-		MathOperations.cs = MathOperations.cs
+		MathOperation.cs = MathOperation.cs
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "230209-Recursion", "230209-Recursion\230209-Recursion.csproj", "{A7BC50FF-C7A9-4E01-9BFF-52B330BC7177}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "230209-Ex22-CalculatorWPF", "230209-Ex22-CalculatorWPF\230209-Ex22-CalculatorWPF.csproj", "{259D66F1-749E-43D0-BAC7-F79E27B96CCF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "230214-ADT1-ArrayStack", "230214-ADT1-ArrayStack\230214-ADT1-ArrayStack.csproj", "{5627400C-2A9D-47D3-B797-F87A2B32503C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -188,6 +190,10 @@ Global
 		{259D66F1-749E-43D0-BAC7-F79E27B96CCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{259D66F1-749E-43D0-BAC7-F79E27B96CCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{259D66F1-749E-43D0-BAC7-F79E27B96CCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5627400C-2A9D-47D3-B797-F87A2B32503C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5627400C-2A9D-47D3-B797-F87A2B32503C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5627400C-2A9D-47D3-B797-F87A2B32503C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5627400C-2A9D-47D3-B797-F87A2B32503C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
