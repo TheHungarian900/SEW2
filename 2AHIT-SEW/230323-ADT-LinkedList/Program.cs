@@ -16,15 +16,18 @@ namespace _230323_ADT_LinkedList
             {
                 do
                 {
-                    Console.WriteLine("Wählen Sie eines aus der folgenden Liste aus: \n\n");
-                    Console.WriteLine("1. Ich möchte etwas am Anfang hinzufügen! \n");
-                    Console.WriteLine("2. Ich möchte mir den letzten Hinzugefügten anschauen! \n");
+                    Console.WriteLine("Wählen Sie eines aus der folgenden Liste aus: \n");
+                    Console.WriteLine("1. Ich möchte etwas am Anfang hinzufügen!");
+                    Console.WriteLine("2. Ich möchte mir den letzten Hinzugefügten anschauen!");
                     Console.WriteLine("3. Ich möchte den ersten Hinzugefügten entfernen");
-                    Console.WriteLine("4. Ich möchte etwas hinzufügen! \n");
-                    Console.WriteLine("5. Ich möchte die Liste auf einen Eintrag überprüfen! \n");
-                    Console.WriteLine("6. Ich möchte etwas entfernen");
-                    Console.WriteLine("7. Ich möchte alles löschen! \n");
-                    Console.WriteLine("8. Exit! \n\n\n");
+                    Console.WriteLine("4. Ich möchte etwas hinzufügen!");
+                    Console.WriteLine("5. Ich möchte die Liste auf einen Eintrag überprüfen!");
+                    Console.WriteLine("6. Ich möchte etwas entfernen!");
+                    Console.WriteLine("7. Move next!");
+                    Console.WriteLine("8. Move last!");
+                    Console.WriteLine("9. Move first!");
+                    Console.WriteLine("10. Ich möchte alles löschen!");
+                    Console.WriteLine("11. Exit! \n\n\n");
 
                     input1 = Console.ReadLine();
                     isOk1 = Int32.TryParse(input1, out selection);
@@ -106,6 +109,33 @@ namespace _230323_ADT_LinkedList
                         catch (InvalidOperationException e)
                         {
                             Console.WriteLine(e.Message);
+                        }
+
+                        break;
+
+                    case 8:
+
+                        try
+                        {
+
+                        }
+
+                        break;
+
+                    case 9:
+
+                        try
+                        {
+
+                        }
+
+                        break;
+
+                    case 10:
+
+                        try
+                        {
+
                         }
 
                         break;

@@ -22,12 +22,6 @@ namespace _230323_ADT_LinkedList
         private Node currentNode;
         private Node CurrentNode { get { return currentNode; } set { currentNode = value; } }
 
-        private Node first;
-        private Node First { get { return first; } set { first = value; } }
-
-        private Node last;
-        private Node Last { get { return last; } set { last = value; } }
-
         public T CurrentItem
         {
             get { if (this.currentNode == null) return default;
@@ -102,6 +96,57 @@ namespace _230323_ADT_LinkedList
             }
         }
 
+        public void Insert(T item)
+        {
+            Node temp = new Node(item);
+
+            if(this.Count == 0)
+            {
+                this.head = temp;
+                this.tail = temp;
+                this.currentNode = temp;
+            }
+            else if(this.currentNode == this.tail)
+            {
+                this.tail = temp;
+            }
+            else
+            {
+                temp.Next = currentNode.Next;
+                currentNode.Next = temp;
+            }
+
+            count++;
+        }
+
+        public T Remove()
+        {
+            Node p;
+            T temp;
+
+            p = this.head;
+
+            if(this.Count == 0)
+            {
+                throw new InvalidOperationException("Queue empty!");
+            }else if()
+            else
+            {
+                do
+                {
+                    p = p.Next;
+
+                } while (p.Next != this.CurrentNode);
+
+                temp = this.CurrentNode.Item;
+                p.Next = this.CurrentNode.Next;
+                this.CurrentNode = p;
+
+                this.count--;
+                return temp;
+            }
+        }
+
         public bool MoveNext()
         {
             if (this.currentNode == null || this.currentNode.Next == null) { return false; }
@@ -110,14 +155,14 @@ namespace _230323_ADT_LinkedList
 
         public bool MoveLast()
         {
-            if (this.Last == null) { return false; }
-            else { this.currentNode = this.last; return true; }
+            if (this.tail == null) { return false; }
+            else { this.currentNode = this.tail; return true; }
         }
 
         public bool MoveFirst()
         {
-            if (this.First == null) { return false; }
-            else { this.currentNode = this.first; return true; }
+            if (this.head == null) { return false; }
+            else { this.currentNode = this.head; return true; }
         }
 
         public bool IsEmpty()
