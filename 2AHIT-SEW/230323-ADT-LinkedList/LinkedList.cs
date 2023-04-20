@@ -129,7 +129,45 @@ namespace _230323_ADT_LinkedList
             if(this.Count == 0)
             {
                 throw new InvalidOperationException("Queue empty!");
-            }else if()
+
+                if(this.CurrentNode == null)
+                {
+                    this.CurrentItem = default(T);
+                }
+                else
+                {
+                    this.CurrentItem = this.CurrentNode.Item;
+                }
+            }
+            else if(this.CurrentNode == this.head)
+            {
+                T item = this.head.Item;
+                this.head = this.head.Next;
+
+                if (this.head == null)
+                {
+                    this.tail = null;
+                }
+                this.count--;
+
+                return item;
+            }
+            else if(this.CurrentNode == this.tail)
+            {
+                do
+                {
+                    p = p.Next;
+
+                } while (p.Next != this.CurrentNode);
+
+                temp = this.CurrentNode.Item;
+                p.Next = this.CurrentNode.Next;
+                this.CurrentNode = p;
+                this.tail = p;
+
+                this.count--;
+                return temp;
+            }
             else
             {
                 do
@@ -147,10 +185,13 @@ namespace _230323_ADT_LinkedList
             }
         }
 
+
+
         public bool MoveNext()
         {
             if (this.currentNode == null || this.currentNode.Next == null) { return false; }
-            else { this.currentNode = this.currentNode.Next; return true; }
+            this.currentNode = this.currentNode.Next;
+            return true;
         }
 
         public bool MoveLast()

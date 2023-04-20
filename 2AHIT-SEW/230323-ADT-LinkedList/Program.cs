@@ -16,29 +16,29 @@ namespace _230323_ADT_LinkedList
             {
                 do
                 {
-                    Console.WriteLine("Wählen Sie eines aus der folgenden Liste aus: \n");
+                    Console.WriteLine("Wählen Sie eines aus der folgenden Liste aus:");
                     Console.WriteLine("1. Ich möchte etwas am Anfang hinzufügen!");
-                    Console.WriteLine("2. Ich möchte mir den letzten Hinzugefügten anschauen!");
+                    Console.WriteLine("2. Ich möchte mir den ersten Hinzugefügten anschauen!");
                     Console.WriteLine("3. Ich möchte den ersten Hinzugefügten entfernen");
                     Console.WriteLine("4. Ich möchte etwas hinzufügen!");
-                    Console.WriteLine("5. Ich möchte die Liste auf einen Eintrag überprüfen!");
+                    Console.WriteLine("5. Ich möchte an einer bestimmten Stelle etwas entfernen!");
                     Console.WriteLine("6. Ich möchte etwas entfernen!");
                     Console.WriteLine("7. Move next!");
                     Console.WriteLine("8. Move last!");
                     Console.WriteLine("9. Move first!");
                     Console.WriteLine("10. Ich möchte alles löschen!");
-                    Console.WriteLine("11. Exit! \n\n\n");
+                    Console.WriteLine("11. Exit! \n\n");
 
                     input1 = Console.ReadLine();
                     isOk1 = Int32.TryParse(input1, out selection);
 
-                } while (selection < 1 || selection > 8);
+                } while (selection < 1 || selection > 12);
 
                 switch (selection)
                 {
                     case 1:
 
-                        Console.WriteLine("Eingabe: \n\n");
+                        Console.WriteLine("Eingabe:");
                         input2 = Console.ReadLine();
                         input.Enqueue(input2);
 
@@ -49,7 +49,7 @@ namespace _230323_ADT_LinkedList
 
                         try
                         {
-                            Console.WriteLine(input.Peek() + " wurde als letztes hinzugefügt. \n\n\n");
+                            Console.WriteLine(input.Peek() + " wurde als letztes hinzugefügt. \n\n");
                         }
                         catch (Exception e)
                         {
@@ -63,7 +63,7 @@ namespace _230323_ADT_LinkedList
 
                         try
                         {
-                            Console.WriteLine(input.Dequeue() + " wurde entfernt! \n\n\n");
+                            Console.WriteLine(input.Dequeue() + " wurde entfernt! \n\n");
                         }
                         catch (InvalidOperationException e)
                         {
@@ -74,19 +74,14 @@ namespace _230323_ADT_LinkedList
 
                     case 4:
 
-                        try
-                        {
-
-                        }
+                        Console.WriteLine("Geben Sie etwas ein: ");
+                        input.Insert(Console.ReadLine());
 
                         break;
 
                     case 5:
 
-                        try
-                        {
-
-                        }
+                        Console.WriteLine("Remove(T key) missing!");
 
                         break;
 
@@ -94,12 +89,43 @@ namespace _230323_ADT_LinkedList
 
                         try
                         {
-
+                            Console.WriteLine(input.Remove() + " wurde entfernt! \n\n");
+                        }
+                        catch(InvalidOperationException e)
+                        {
+                            Console.WriteLine();
                         }
 
                         break;
 
                     case 7:
+
+                        if(input.MoveNext() == false)
+                        {
+                            Console.WriteLine("Not possible!");
+                        }
+
+                        break;
+
+                    case 8:
+
+                        if(input.MoveLast() == false)
+                        {
+                            Console.WriteLine("Not possible!");
+                        }
+
+                        break;
+
+                    case 9:
+
+                        if (input.MoveFirst() == false)
+                        {
+                            Console.WriteLine("Not possible!");
+                        }
+
+                        break;
+
+                    case 10:
 
                         try
                         {
@@ -112,35 +138,8 @@ namespace _230323_ADT_LinkedList
                         }
 
                         break;
-
-                    case 8:
-
-                        try
-                        {
-
-                        }
-
-                        break;
-
-                    case 9:
-
-                        try
-                        {
-
-                        }
-
-                        break;
-
-                    case 10:
-
-                        try
-                        {
-
-                        }
-
-                        break;
                 }
-            } while (selection != 8);
+            } while (selection != 11);
             
 
             
