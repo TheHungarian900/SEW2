@@ -32,7 +32,7 @@ namespace _230323_ADT_LinkedList
                     input1 = Console.ReadLine();
                     isOk1 = Int32.TryParse(input1, out selection);
 
-                } while (selection < 1 || selection > 12);
+                } while (selection < 1 || selection > 11);
 
                 switch (selection)
                 {
@@ -49,7 +49,7 @@ namespace _230323_ADT_LinkedList
 
                         try
                         {
-                            Console.WriteLine(input.Peek() + " wurde als letztes hinzugefügt. \n\n");
+                            Console.WriteLine(input.Peek() + " wurde als erstes hinzugefügt. \n\n");
                         }
                         catch (Exception e)
                         {
