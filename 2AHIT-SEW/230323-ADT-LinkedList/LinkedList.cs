@@ -49,7 +49,7 @@ namespace _230323_ADT_LinkedList
         {
             if (this.head == null)
             {
-                throw new InvalidOperationException("Queue empty!");
+                throw new InvalidOperationException("List empty!");
             }
 
             T item = this.head.Item;
@@ -66,11 +66,11 @@ namespace _230323_ADT_LinkedList
 
         public void Clear()
         {
-            while(this.head.Next != null)
+            while(this.head != null)
             {
                 if (this.head == null)
                 {
-                    throw new InvalidOperationException("Queue empty!");
+                    throw new InvalidOperationException("List empty!");
                 }
 
                 T item = this.head.Item;
@@ -128,7 +128,7 @@ namespace _230323_ADT_LinkedList
 
             if(this.Count == 0)
             {
-                throw new InvalidOperationException("Queue empty!");
+                throw new InvalidOperationException("List empty!");
 
                 if(this.CurrentNode == null)
                 {
